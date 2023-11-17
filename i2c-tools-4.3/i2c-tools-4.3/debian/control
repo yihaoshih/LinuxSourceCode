@@ -1,0 +1,57 @@
+Source: i2c-tools
+Section: utils
+Priority: optional
+Build-Depends: debhelper-compat (= 13), dh-python, python3-all-dev
+Rules-Requires-Root: no
+Standards-Version: 4.6.0
+Maintainer: Aurelien Jarno <aurel32@debian.org>
+Homepage: https://www.kernel.org/pub/software/utils/i2c-tools/
+
+Package: i2c-tools
+Architecture: linux-any
+Depends: ${shlibs:Depends}, ${perl:Depends}, ${misc:Depends}, adduser, udev
+Recommends: read-edid
+Suggests: libi2c-dev, python3-smbus
+Description: heterogeneous set of I2C tools for Linux
+ This package contains a heterogeneous set of I2C tools for Linux: a bus
+ probing tool, a chip dumper, register-level access helpers, EEPROM
+ decoding scripts, and more.
+
+Package: libi2c0
+Architecture: linux-any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Section: libs
+Multi-Arch: same
+Description: userspace I2C programming library
+ I2C devices are usually controlled by a kernel driver.  Using this
+ library it is also possible to access all devices on an adapter
+ from userspace and without the knowledge of Linux kernel internals.
+ .
+ This package contains what you need to run programs that use this
+ library.
+
+Package: libi2c-dev
+Architecture: linux-any
+Depends: libi2c0 (= ${binary:Version}), ${misc:Depends}
+Recommends: i2c-tools
+Section: libdevel
+Multi-Arch: same
+Description: userspace I2C programming library development files
+ I2C devices are usually controlled by a kernel driver.  Using this
+ library it is also possible to access all devices on an adapter
+ from userspace and without the knowledge of Linux kernel internals.
+ .
+ This package contains what you need for compiling sources that
+ use this library in your own code.
+
+Package: python3-smbus
+Architecture: linux-any
+Section: python
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${python3:Depends}, ${misc:Depends}
+Provides: ${python3:Provides}
+Recommends: i2c-tools
+Description: Python 3 bindings for Linux SMBus access through i2c-dev
+ This Python 3 module allows SMBus access through the I2C /dev interface on
+ Linux hosts.  The host kernel must have I2C support, I2C device interface
+ support, and a bus adapter driver.

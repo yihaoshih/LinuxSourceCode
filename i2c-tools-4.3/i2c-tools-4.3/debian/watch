@@ -1,0 +1,2 @@
+version=3
+https://www.kernel.org/pub/software/utils/i2c-tools/i2c-tools-(\d.*)\.(?:tgz|tbz2|txz|tar\.(?:gz|bz2|xz))

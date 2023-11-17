@@ -1,0 +1,4 @@
+Test which applications are running.
+
+Support "ping =" for IPv6 (currently only IPv4 numeric address recognised).
+
